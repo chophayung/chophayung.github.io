@@ -2,7 +2,7 @@
 <html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>สั่งซื้อเสื้อวงช่อพะยูง โรงเรียนขุขันธ์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;700&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Hallmark · v2.0.0 · variant C atelier · redesign: full · scope: app · theme: carnival (brand drop: the shirt's navy and gold) · deal: manual · genre: editorial · signature: the shirt and its price, set poster-large · built by hand, scripts not run */
 /* critique: one form well on a hard ink shadow; options are ruled rows that invert when chosen; the live total sits in the display face */
@@ -12,7 +12,7 @@
   --color-ink:oklch(24% 0.08 270);--color-ink-2:oklch(34% 0.07 270);--color-muted:oklch(44% 0.04 270);
   --color-accent:oklch(80% 0.15 82);--color-accent-ink:oklch(24% 0.08 270);--color-accent-2:oklch(24% 0.08 270);
   --color-rule:oklch(24% 0.08 270);--color-focus:oklch(55% 0.2 25);--color-error:oklch(50% 0.2 25);--color-white:oklch(100% 0 0);
-  --font-display:"Kanit","Big Shoulders Display",Impact,sans-serif;--font-body:"Sarabun","Golos Text",system-ui,sans-serif;
+  --font-display:"Kanit","Big Shoulders Display",Impact,sans-serif;--font-body:"Kanit",system-ui,sans-serif;
   --radius-card:2px;--rule-hair:1px;--rule-bar:2px;--shadow-card:4px 4px 0 var(--color-ink);--shadow-press:1px 1px 0 var(--color-ink);
   --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:72px;
   --text-s:15px;--text-m:17px;--text-l:20px;--text-xl:26px;--text-2xl:34px;--display-s:clamp(40px,7vw,64px);--display-l:clamp(64px,13vw,150px);
@@ -115,7 +115,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 --color-ink:oklch(26% 0.07 268);--color-muted:oklch(48% 0.03 268);
 --color-accent:oklch(26% 0.07 268);--color-accent-ink:oklch(97.5% 0.012 85);--color-rule:oklch(72% 0.12 80);
 --color-gold:oklch(72% 0.12 80);--color-focus:oklch(60% 0.15 70);
---font-display:"Noto Serif Thai",Georgia,serif;--radius-card:10px;--rule-bar:1px;--shadow-card:0 1px 0 var(--color-rule);--shadow-press:none}
+--font-display:"Kanit",system-ui,sans-serif;--radius-card:10px;--rule-bar:1px;--shadow-card:0 1px 0 var(--color-rule);--shadow-press:none}
 h1,h2,.price{font-weight:700}
 .hero h1{letter-spacing:-0.01em}
 .well{border-color:var(--color-rule);background:oklch(100% 0 0)}
@@ -137,6 +137,10 @@ h1,h2,.price{font-weight:700}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
 /* qa fixes */
+body{font-weight:300}
+h1,h2,h3{font-weight:600}
+b,strong,label,.chip b{font-weight:500}
+
 .chips{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
 .chip{padding:6px 2px;border-radius:8px}
 .chip b{font-size:18px;line-height:1.2}
