@@ -1,89 +1,163 @@
 <!DOCTYPE html>
-<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>สั่งซื้อเสื้อวงช่อพะยูง</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สั่งซื้อเสื้อวงช่อพะยูง โรงเรียนขุขันธ์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1B1F4B;--gold:#E0A82E;--bg:#f4f2ec;--line:#ddd6c6}
+/* Hallmark · v2.0.0 · redesign: full · scope: app · theme: carnival (brand drop: the shirt's navy and gold) · deal: manual · genre: editorial · signature: the shirt and its price, set poster-large · built by hand, scripts not run */
+/* critique: one form well on a hard ink shadow; options are ruled rows that invert when chosen; the live total sits in the display face */
+/* waive 7: the order form needs scripting to submit, a noscript line says so */
+:root{
+  --color-paper:oklch(95% 0.03 85);--color-paper-2:oklch(91% 0.04 82);--color-paper-3:oklch(86% 0.05 80);
+  --color-ink:oklch(24% 0.08 270);--color-ink-2:oklch(34% 0.07 270);--color-muted:oklch(44% 0.04 270);
+  --color-accent:oklch(80% 0.15 82);--color-accent-ink:oklch(24% 0.08 270);--color-accent-2:oklch(24% 0.08 270);
+  --color-rule:oklch(24% 0.08 270);--color-focus:oklch(55% 0.2 25);--color-error:oklch(50% 0.2 25);--color-white:oklch(100% 0 0);
+  --font-display:"Kanit","Big Shoulders Display",Impact,sans-serif;--font-body:"Sarabun","Golos Text",system-ui,sans-serif;
+  --radius-card:2px;--rule-hair:1px;--rule-bar:2px;--shadow-card:4px 4px 0 var(--color-ink);--shadow-press:1px 1px 0 var(--color-ink);
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:72px;
+  --text-s:15px;--text-m:17px;--text-l:20px;--text-xl:26px;--text-2xl:34px;--display-s:clamp(40px,7vw,64px);--display-l:clamp(64px,13vw,150px);
+  --container:1120px;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Sarabun,system-ui,sans-serif;background:var(--bg);color:#222;font-size:17px}
-.wrap{max-width:560px;margin:0 auto;padding:12px 12px 40px}
-.hero{background:var(--navy);color:#fff;border-radius:14px;padding:18px 16px;text-align:center}
-.hero h1{margin:0;font-size:24px;color:var(--gold);line-height:1.3}
-.hero p{margin:6px 0 0;font-size:16px}
-.card{background:#fff;border-radius:14px;padding:16px;margin-top:12px;border:1px solid var(--line)}
-.card h2{margin:0 0 10px;font-size:19px;color:var(--navy)}
-img.full{width:100%;border-radius:10px;display:block}
-label.f{display:block;font-weight:600;margin:10px 0 4px}
-input[type=text],input[type=tel],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy)}
-.seg{display:flex;background:#eee8d8;border-radius:12px;padding:4px;gap:4px}
-.seg button{flex:1;font:inherit;font-weight:700;font-size:18px;padding:10px;border:0;border-radius:9px;background:transparent;color:#555;cursor:pointer}
-.seg button.on{background:var(--navy);color:var(--gold)}
-.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.chip{position:relative;font:inherit;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 4px;text-align:center;cursor:pointer}
-.chip b{display:block;font-size:20px;color:var(--navy)}
-.chip span{font-size:13px;color:#777}
-.chip.on{border-color:var(--gold);background:#fff8e6}
-.chip i{position:absolute;top:-8px;right:-6px;background:var(--gold);color:var(--navy);font-style:normal;font-weight:700;font-size:13px;min-width:22px;height:22px;line-height:22px;border-radius:11px;display:none}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:var(--text-m);line-height:1.55}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:1.05;margin:0;overflow-wrap:break-word;min-width:0;color:var(--color-ink)}
+.wrap{max-width:var(--container);margin:0 auto;padding:var(--space-5) var(--space-4) var(--space-8)}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4);border-bottom:var(--rule-bar) solid var(--color-rule);padding-bottom:var(--space-3)}
+.mark{font-family:var(--font-display);font-weight:800;font-size:var(--text-l)}
+.top a{color:var(--color-ink);text-decoration-color:var(--color-accent);text-decoration-thickness:3px;text-underline-offset:4px;font-weight:600}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-6);padding:var(--space-6) 0 var(--space-7);align-items:center}
+.hero h1{font-size:var(--display-s)}
+.hero p{font-size:var(--text-l);margin:var(--space-3) 0 var(--space-5);max-width:30ch}
+.price{display:flex;align-items:baseline;gap:var(--space-3);font-family:var(--font-display);font-weight:800;line-height:.9}
+.price b{font-size:var(--display-l);font-variant-numeric:tabular-nums}
+.price span{font-size:var(--text-2xl)}
+.shot{background:var(--color-paper-2);border:var(--rule-bar) solid var(--color-ink);box-shadow:var(--shadow-card);border-radius:var(--radius-card)}
+.btn{display:inline-block;font:inherit;font-family:var(--font-display);font-weight:700;font-size:var(--text-l);padding:var(--space-3) var(--space-5);border:var(--rule-bar) solid var(--color-ink);border-radius:var(--radius-card);background:var(--color-accent);color:var(--color-accent-ink);box-shadow:var(--shadow-card);cursor:pointer;text-decoration:none;transition:background-color .15s,box-shadow .1s,transform .1s}
+.btn:hover{background:var(--color-paper)}
+.btn:active{box-shadow:var(--shadow-press);transform:translate(3px,3px)}
+.btn:disabled{opacity:.55;cursor:progress}
+.btn.ghost{background:var(--color-paper)}
+.btn.ghost:hover{background:var(--color-accent)}
+.well{background:var(--color-paper);border:var(--rule-bar) solid var(--color-ink);box-shadow:var(--shadow-card);border-radius:var(--radius-card)}
+.step{padding:var(--space-5);border-top:var(--rule-bar) solid var(--color-rule)}
+.step:first-child{border-top:0}
+.step h2{font-size:var(--text-2xl);margin-bottom:var(--space-3)}
+.hint{font-size:var(--text-s);color:var(--color-muted);margin:0 0 var(--space-3)}
+label.f{display:block;font-weight:600;margin:var(--space-3) 0 var(--space-1)}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;padding:var(--space-3);border:var(--rule-bar) solid var(--color-ink);border-radius:var(--radius-card);background:var(--color-white);color:var(--color-ink)}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:var(--rule-bar) solid var(--color-ink);border-radius:var(--radius-card)}
+.seg button{font:inherit;font-family:var(--font-display);font-weight:700;font-size:var(--text-l);padding:var(--space-3);border:0;background:var(--color-paper);color:var(--color-ink);cursor:pointer;transition:background-color .15s,color .15s}
+.seg button+button{border-left:var(--rule-bar) solid var(--color-ink)}
+.seg button.on{background:var(--color-ink);color:var(--color-paper)}
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-2);margin-top:var(--space-4)}
+.chip{position:relative;font:inherit;border:var(--rule-bar) solid var(--color-ink);border-radius:var(--radius-card);background:var(--color-paper);color:var(--color-ink);padding:var(--space-3) var(--space-1);text-align:center;cursor:pointer;transition:background-color .15s}
+.chip b{display:block;font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1}
+.chip span{font-size:var(--text-s);color:var(--color-muted)}
+.chip:hover{background:var(--color-paper-2)}
+.chip.on{background:var(--color-accent)}
+.chip i{position:absolute;top:-10px;right:-8px;background:var(--color-ink);color:var(--color-paper);font-style:normal;font-weight:700;font-size:var(--text-s);min-width:24px;height:24px;line-height:24px;border-radius:12px;display:none}
 .chip.on i{display:block}
-details.chart{margin-top:10px}
-details.chart summary{cursor:pointer;color:var(--navy);font-weight:600;font-size:15px}
-details.chart img{margin-top:8px}
-.line{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1.5px solid var(--gold);background:#fff8e6;border-radius:10px;margin-top:8px}
-.line .nm{flex:1;font-weight:600}
-.line .nm small{font-weight:400;color:#777}
-.step{display:flex;align-items:center;gap:6px}
-.step button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-size:20px;font-weight:700;cursor:pointer;line-height:1}
-.step b{min-width:22px;text-align:center;font-size:18px}
-.del{border:0;background:none;color:#b3261e;font-size:20px;cursor:pointer;padding:0 2px}
-.opt{display:flex;align-items:center;gap:10px;padding:12px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px;font-weight:600}
-.opt input{width:22px;height:22px;accent-color:var(--navy)}
-.opt.on{border-color:var(--gold);background:#fff8e6}
-#addrBox{display:none;margin:-2px 0 8px}
-.sum{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;border-radius:10px;padding:12px 14px;margin-top:6px}
-.sum b{color:var(--gold);font-size:22px}
-.bank{line-height:1.6;font-size:16px}
-.bank b{color:var(--navy)}
-.qr{width:70%;max-width:260px;margin:10px auto;display:block}
-.up{display:block;border:2px dashed var(--gold);border-radius:12px;padding:16px;text-align:center;cursor:pointer;background:#fffaf0;font-weight:600}
-.up input{display:none}
-#prev{max-width:100%;max-height:260px;margin:10px auto 0;display:none;border-radius:8px}
-.btn{width:100%;font:inherit;font-size:20px;font-weight:700;padding:14px;border:0;border-radius:12px;background:var(--gold);color:var(--navy);margin-top:14px;cursor:pointer}
-.btn:disabled{opacity:.6}
-.err{color:#b3261e;font-weight:600;margin-top:10px;display:none}
-.small{font-size:14px;color:#666}
-.done{text-align:center;padding:30px 16px}
-.done h2{color:var(--navy);font-size:24px}
-.done .no{font-size:30px;color:var(--gold);font-weight:700}
-</style></head><body><div class="wrap" id="app">
-<div class="hero"><h1>สั่งซื้อเสื้อวงดนตรีลูกทุ่ง<br>ช่อพะยูง โรงเรียนขุขันธ์</h1><p>ราคาตัวละ 350 บาท · รายได้สนับสนุนวงช่อพะยูง</p></div>
-
-<div class="card"><h2>ตัวอย่างเสื้อ</h2><img class="full" src="shirt.jpg" alt="ตัวอย่างเสื้อ"></div>
-
-<div class="card"><h2>ข้อมูลผู้สั่ง</h2>
+details.chart{margin-top:var(--space-4)}
+details.chart summary{cursor:pointer;font-weight:600;text-decoration:underline;text-decoration-color:var(--color-accent);text-decoration-thickness:3px;text-underline-offset:4px}
+details.chart img{margin-top:var(--space-3);border:var(--rule-hair) solid var(--color-ink)}
+#cart{margin-top:var(--space-4)}
+.line{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) 0;border-top:var(--rule-bar) solid var(--color-ink)}
+.line:last-child{border-bottom:var(--rule-bar) solid var(--color-ink)}
+.line .nm{flex:1;font-weight:700;min-width:0}
+.line .nm small{font-weight:400;color:var(--color-muted)}
+.line .step{display:flex;align-items:center;gap:var(--space-2);padding:0;border:0}
+.line .step button{width:40px;height:40px;border-radius:var(--radius-card);border:var(--rule-bar) solid var(--color-ink);background:var(--color-paper);color:var(--color-ink);font-size:var(--text-l);font-weight:700;cursor:pointer;line-height:1;transition:background-color .15s}
+.line .step button:hover{background:var(--color-accent)}
+.line .step b{min-width:24px;text-align:center;font-size:var(--text-l);font-variant-numeric:tabular-nums}
+.del{border:0;background:none;color:var(--color-muted);font:inherit;font-size:var(--text-s);text-decoration:underline;cursor:pointer;padding:var(--space-1)}
+.opt{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4) var(--space-3);border-top:var(--rule-bar) solid var(--color-ink);font-weight:600;cursor:pointer;transition:background-color .15s,color .15s}
+.opt:last-of-type{border-bottom:var(--rule-bar) solid var(--color-ink)}
+.opt input{width:22px;height:22px;accent-color:var(--color-accent);margin:0}
+.opt.on{background:var(--color-ink);color:var(--color-paper)}
+#addrBox{display:none;margin-top:var(--space-3)}
+.total{display:flex;justify-content:space-between;align-items:end;gap:var(--space-3);background:var(--color-accent);border-top:var(--rule-bar) solid var(--color-ink);padding:var(--space-4) var(--space-5)}
+.total small{display:block;font-size:var(--text-s)}
+.total b{white-space:nowrap;font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);font-variant-numeric:tabular-nums}
+.pay{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
+.pay dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--space-1) var(--space-3)}
+.pay dt{color:var(--color-muted)}
+.pay dd{margin:0;font-weight:600}
+.pay dd.acct{font-family:var(--font-display);font-size:var(--text-xl);font-variant-numeric:tabular-nums}
+.qr{width:200px;border:var(--rule-hair) solid var(--color-ink)}
+.up{display:block;margin-top:var(--space-4);border:var(--rule-bar) dashed var(--color-ink);border-radius:var(--radius-card);padding:var(--space-5);text-align:center;cursor:pointer;background:var(--color-paper-2);font-weight:700;transition:background-color .15s}
+.up:hover{background:var(--color-paper-3)}
+.up input{position:absolute;opacity:0;width:1px;height:1px}
+.up:focus-within{outline:3px solid var(--color-focus);outline-offset:3px}
+#prev{max-width:100%;max-height:260px;margin:var(--space-3) auto 0;display:none}
+.err{color:var(--color-error);font-weight:700;margin-top:var(--space-3);display:none}
+.send{padding:var(--space-5);border-top:var(--rule-bar) solid var(--color-ink)}
+.send .btn{width:100%}
+.small{font-size:var(--text-s);color:var(--color-muted)}
+.contact{margin-top:var(--space-3);text-align:center}
+.done{padding:var(--space-7) var(--space-5);text-align:center}
+.done h2{font-size:var(--display-s)}
+.done .no{font-family:var(--font-display);font-weight:800;font-size:var(--display-s);background:var(--color-accent);display:inline-block;padding:0 var(--space-3);margin:var(--space-2) 0 var(--space-4)}
+.done .btn{margin-top:var(--space-4)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,.opt:focus-within{outline:3px solid var(--color-focus);outline-offset:3px;transition:none}
+@media (min-width:900px){
+  .wrap{padding-top:var(--space-6)}
+  .layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--space-7);align-items:start}
+  .side{position:sticky;top:var(--space-5)}
+  .hero{padding-top:var(--space-5)}
+  .pay{grid-template-columns:minmax(0,1fr) auto;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="wrap">
+<header class="top"><span class="mark">วงช่อพะยูง</span><a href="#order">สั่งซื้อ</a></header>
+<div class="layout">
+<section class="side">
+<div class="hero">
+<div>
+<h1>เสื้อวงช่อพะยูง</h1>
+<p>รายได้ทุกตัวสนับสนุนวงดนตรีลูกทุ่ง โรงเรียนขุขันธ์</p>
+<div class="price"><b>350</b><span>บาท</span></div>
+</div>
+<img class="shot" src="shirt.jpg" alt="เสื้อโปโลสีกรมท่าขอบเหลืองทอง ด้านหน้าและด้านหลัง ลายวงลูกทุ่งโรงเรียนขุขันธ์" width="1480" height="1110">
+</div>
+</section>
+<main id="order" class="well">
+<noscript><p class="step">หน้านี้ต้องเปิด JavaScript เพื่อส่งคำสั่งซื้อ</p></noscript>
+<section class="step"><h2>ผู้สั่งซื้อ</h2>
 <label class="f" for="name">ชื่อ-นามสกุล</label><input type="text" id="name" autocomplete="name">
-<label class="f" for="phone">เบอร์โทรศัพท์</label><input type="tel" id="phone" inputmode="numeric" placeholder="เช่น 0812345678"></div>
+<label class="f" for="phone">เบอร์โทรศัพท์</label><input type="tel" id="phone" inputmode="numeric" autocomplete="tel" placeholder="เช่น 0812345678"></section>
 
-<div class="card"><h2>เลือกทรง ไซซ์ และจำนวน</h2>
+<section class="step"><h2>ทรงและไซซ์</h2>
 <div class="seg"><button type="button" data-c="ชาย" class="on">ทรงชาย</button><button type="button" data-c="หญิง">ทรงหญิง</button></div>
-<div class="small" style="margin:10px 0 6px">แตะไซซ์ที่ต้องการ (ตัวเลข = รอบอก นิ้ว) · สั่งได้หลายไซซ์ทั้ง 2 ทรง</div>
 <div id="chips" class="chips"></div>
-<details class="chart"><summary>📏 ดูตารางไซซ์ (รอบอก / ความยาว)</summary><img class="full" src="sizechart.jpg" alt="ตารางไซซ์"></details>
-<div id="cart"></div></div>
+<p class="hint" style="margin-top:12px">ตัวเลขใต้ไซซ์คือรอบอก (นิ้ว) แตะซ้ำเพื่อเพิ่มจำนวน สั่งได้ทั้ง 2 ทรง</p>
+<details class="chart"><summary>ดูตารางไซซ์ รอบอกและความยาว</summary><img src="sizechart.jpg" alt="ตารางไซซ์ ทรงหญิง S ถึง XXL รอบอก 34 ถึง 42 นิ้ว ทรงชาย SS ถึง 3XL รอบอก 36 ถึง 48 นิ้ว" width="2560" height="560"></details>
+<div id="cart"></div></section>
 
-<div class="card"><h2>วิธีรับเสื้อ</h2>
+<section class="step"><h2>รับเสื้อ</h2>
 <label class="opt" id="o1"><input type="radio" name="m" value="รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์">รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์</label>
 <label class="opt" id="o2"><input type="radio" name="m" value="จัดส่ง">จัดส่ง (+50 บาท)</label>
-<div id="addrBox"><textarea id="addr" rows="3" placeholder="ชื่อผู้รับ ที่อยู่ และรหัสไปรษณีย์"></textarea></div>
-<div class="sum"><span>ยอดที่ต้องโอน<br><span class="small" style="color:#cfd2ea" id="cnt">0 ตัว</span></span><b id="amt">0 บาท</b></div></div>
+<div id="addrBox"><label class="f" for="addr">ที่อยู่จัดส่ง</label><textarea id="addr" rows="3" placeholder="ชื่อผู้รับ ที่อยู่ และรหัสไปรษณีย์"></textarea></div>
+</section>
+<div class="total"><span>ยอดที่ต้องโอน<small id="cnt">0 ตัว</small></span><b id="amt">0 บาท</b></div>
 
-<div class="card"><h2>ชำระเงิน</h2>
-<div class="bank">สแกน QR Code หรือโอนเข้าบัญชี<br><b>ธนาคารกรุงไทย</b><br>เลขที่บัญชี <b>861-0-81701-6</b><br>ชื่อบัญชี กองทุนส่งเสริมความเป็นเลิศทางด้านวงดนตรีลูกทุ่ง โรงเรียนขุขันธ์</div>
-<img class="qr" src="qr.jpg" alt="QR พร้อมเพย์">
-<label class="up" id="upl"><input type="file" id="slip" accept="image/*,application/pdf">📎 แตะเพื่อแนบสลิปการโอนเงิน<div class="small" id="fname">รูปภาพ หรือ PDF</div><img id="prev" alt=""></label>
+<section class="step"><h2>ชำระเงิน</h2>
+<div class="pay">
+<dl><dt>ธนาคาร</dt><dd>กรุงไทย</dd><dt>เลขที่บัญชี</dt><dd class="acct">861-0-81701-6</dd><dt>ชื่อบัญชี</dt><dd>กองทุนส่งเสริมความเป็นเลิศทางด้านวงดนตรีลูกทุ่ง โรงเรียนขุขันธ์</dd></dl>
+<img class="qr" src="qr.jpg" alt="QR Code พร้อมเพย์ กองทุนส่งเสริมความเป็นเลิศทางด้านวงดนตรีลูกทุ่ง" width="444" height="572">
+</div>
+<label class="up" id="upl"><input type="file" id="slip" accept="image/*,application/pdf">แนบสลิปการโอนเงิน<div class="small" id="fname">แตะเพื่อเลือกรูปหรือไฟล์ PDF</div><img id="prev" alt="ตัวอย่างสลิปที่แนบ"></label>
 <label class="f" for="note">หมายเหตุ (ถ้ามี)</label><textarea id="note" rows="2"></textarea>
-<div class="err" id="err"></div>
+</section>
+<div class="send">
+<div class="err" id="err" role="alert"></div>
 <button class="btn" id="go">ยืนยันการสั่งซื้อ</button>
-<div class="small" style="text-align:center;margin-top:10px">สอบถาม: ครูอรอุมา วิสัย โทร 087-955-3025</div></div>
+<p class="small contact">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p>
+</div>
+</main>
+</div>
 </div>
 <script>
 var PRICE=350,SHIP=50,SIZES=["ชาย SS","ชาย S","ชาย M","ชาย L","ชาย XL","ชาย XXL","ชาย 3XL","หญิง S","หญิง M","หญิง L","หญิง XL","หญิง XXL"],slip=null;
@@ -105,7 +179,7 @@ document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(
 function qty(){var q={};SIZES.forEach(function(k){q[k]=cart[k]||0;});return q;}
 function method(){var r=document.querySelector('input[name=m]:checked');return r?r.value:'';}
 function calc(){var q=qty(),t=0;for(var k in q)t+=q[k];var ship=method()==='จัดส่ง';
-  document.getElementById('cnt').textContent=t+' ตัว'+(ship&&t?' + ค่าส่ง':'');
+  document.getElementById('cnt').textContent=t+' ตัว'+(ship&&t?' รวมค่าส่ง 50 บาท':'');
   document.getElementById('amt').textContent=(t?t*PRICE+(ship?SHIP:0):0).toLocaleString()+' บาท';
   document.getElementById('o1').className='opt'+(method()==='รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์'?' on':'');
   document.getElementById('o2').className='opt'+(ship?' on':'');
@@ -140,8 +214,8 @@ document.getElementById('go').onclick=function(){
   var b=this;b.disabled=true;b.textContent='กำลังส่ง...';
   fetch("https://script.google.com/macros/s/AKfycbyyY_NYhWaGZtQ7QgcH_8OJR0_elZKagUeinQA2dYLHnR1YBJyMu6RddxznY3LAxyJARA/exec",{method:"POST",body:JSON.stringify(o)}).then(function(res){return res.json();}).then(function(r){
     if(!r.ok)throw new Error(r.error||"ส่งไม่สำเร็จ");
-    document.getElementById('app').innerHTML='<div class="hero"><h1>ช่อพะยูง โรงเรียนขุขันธ์</h1></div><div class="card done"><h2>✅ สั่งซื้อเรียบร้อยแล้ว</h2><div>เลขที่คำสั่งซื้อ</div><div class="no">'+r.no+'</div><p>เสื้อ '+r.total+' ตัว · ยอด '+r.amount.toLocaleString()+' บาท</p><p>ขอบคุณที่สนับสนุนวงช่อพะยูงครับ 🙏</p><p class="small">สอบถาม: ครูอรอุมา วิสัย โทร 087-955-3025</p></div>';
-    window.scrollTo(0,0);
+    document.getElementById('order').innerHTML='<div class="done"><h2>สั่งซื้อเรียบร้อย</h2><div>เลขที่คำสั่งซื้อ</div><div class="no">'+r.no+'</div><p>เสื้อ '+r.total+' ตัว ยอดรวม '+r.amount.toLocaleString()+' บาท</p><p>ขอบคุณที่สนับสนุนวงช่อพะยูงครับ</p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p><a class="btn ghost" href="./">สั่งเพิ่มอีกรายการ</a></div>';
+    document.getElementById('order').scrollIntoView();
   }).catch(function(e){b.disabled=false;b.textContent="ยืนยันการสั่งซื้อ";showErr((e&&e.message&&e.message!=="Failed to fetch")?e.message:"ส่งไม่สำเร็จ ลองใหม่อีกครั้ง");});
 };
 </script></body></html>
