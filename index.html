@@ -137,6 +137,18 @@ h1,h2,.price{font-weight:700}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
 /* qa fixes */
+.sz{width:100%;border-collapse:collapse;font-size:var(--text-s);font-variant-numeric:tabular-nums;margin-top:var(--space-3)}
+.sz caption{text-align:left;font-weight:700;padding-bottom:var(--space-1)}
+.sz th,.sz td{border:1px solid var(--color-paper-3);padding:6px 2px;text-align:center}
+.sz thead th{background:var(--color-ink);color:var(--color-paper);border-color:var(--color-ink)}
+.sz tbody th{font-weight:600;color:var(--color-muted);white-space:nowrap;padding:6px}
+.pay .qrcard{justify-self:center}
+@media (min-width:900px){.pay .qrcard{justify-self:end}}
+
+.chart{margin-top:var(--space-4)}
+.chart img{margin-top:0;border:1px solid var(--color-paper-3);border-radius:6px}
+.qrcard{margin:0 auto}
+@media (min-width:900px){.pay{align-items:center}.qrcard{margin:0;width:200px}}
 .qrcard{margin:0;width:220px;border:1px solid var(--color-rule);border-radius:var(--radius-card);overflow:hidden;background:var(--color-white)}
 .qrcard figcaption{background:var(--color-ink);color:var(--color-paper);text-align:center;font-weight:700;padding:var(--space-2) var(--space-2) var(--space-1);line-height:1.3}
 .qrcard figcaption small{display:block;font-weight:400;font-size:var(--text-s);color:var(--color-gold)}
@@ -171,7 +183,7 @@ h1,h2,.price{font-weight:700}
 <div class="seg"><button type="button" data-c="ชาย" class="on">ทรงชาย</button><button type="button" data-c="หญิง">ทรงหญิง</button></div>
 <div id="chips" class="chips"></div>
 <p class="hint" style="margin-top:12px">ตัวเลขใต้ขนาดคือรอบอก (นิ้ว) แตะซ้ำเพื่อเพิ่มจำนวน สั่งได้ทั้ง 2 ทรง</p>
-<details class="chart"><summary>ดูตารางขนาด รอบอกและความยาว</summary><img src="sizechart.jpg" alt="ตารางขนาด ทรงหญิง S ถึง XXL รอบอก 34 ถึง 42 นิ้ว ทรงชาย SS ถึง 3XL รอบอก 36 ถึง 48 นิ้ว" width="2560" height="560"></details>
+<div class="chart"><table class="sz"><caption>ทรงชาย (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">SS</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th><th scope="col">3XL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>36</td><td>38</td><td>40</td><td>42</td><td>44</td><td>46</td><td>48</td></tr><tr><th scope="row">ความยาว</th><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr></tbody></table><table class="sz"><caption>ทรงหญิง (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>34</td><td>36</td><td>38</td><td>40</td><td>42</td></tr><tr><th scope="row">ความยาว</th><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr></tbody></table></div>
 <div id="cart"></div></section>
 
 <section class="step"><h2>รับเสื้อ</h2>
