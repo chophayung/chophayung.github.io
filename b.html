@@ -154,11 +154,11 @@ input[type=text],input[type=tel],textarea{border-color:var(--color-rule)}
 <label class="f" for="name">ชื่อ-นามสกุล</label><input type="text" id="name" autocomplete="name">
 <label class="f" for="phone">เบอร์โทรศัพท์</label><input type="tel" id="phone" inputmode="numeric" autocomplete="tel" placeholder="เช่น 0812345678"></section>
 
-<section class="step"><h2>ทรงและไซซ์</h2>
+<section class="step"><h2>ทรงและขนาด</h2>
 <div class="seg"><button type="button" data-c="ชาย" class="on">ทรงชาย</button><button type="button" data-c="หญิง">ทรงหญิง</button></div>
 <div id="chips" class="chips"></div>
-<p class="hint" style="margin-top:12px">ตัวเลขใต้ไซซ์คือรอบอก (นิ้ว) แตะซ้ำเพื่อเพิ่มจำนวน สั่งได้ทั้ง 2 ทรง</p>
-<details class="chart"><summary>ดูตารางไซซ์ รอบอกและความยาว</summary><img src="sizechart.jpg" alt="ตารางไซซ์ ทรงหญิง S ถึง XXL รอบอก 34 ถึง 42 นิ้ว ทรงชาย SS ถึง 3XL รอบอก 36 ถึง 48 นิ้ว" width="2560" height="560"></details>
+<p class="hint" style="margin-top:12px">ตัวเลขใต้ขนาดคือรอบอก (นิ้ว) แตะซ้ำเพื่อเพิ่มจำนวน สั่งได้ทั้ง 2 ทรง</p>
+<details class="chart"><summary>ดูตารางขนาด รอบอกและความยาว</summary><img src="sizechart.jpg" alt="ตารางขนาด ทรงหญิง S ถึง XXL รอบอก 34 ถึง 42 นิ้ว ทรงชาย SS ถึง 3XL รอบอก 36 ถึง 48 นิ้ว" width="2560" height="560"></details>
 <div id="cart"></div></section>
 
 <section class="step"><h2>รับเสื้อ</h2>
@@ -232,14 +232,14 @@ document.getElementById('go').onclick=function(){
   var t=0;for(var k in o.qty)t+=o.qty[k];
   if(!o.name.trim())return showErr('กรุณากรอกชื่อ-นามสกุล');
   if(!/^0[0-9]{8,9}$/.test(o.phone.replace(/[^0-9]/g,'')))return showErr('กรุณากรอกเบอร์โทรให้ถูกต้อง');
-  if(!t)return showErr('กรุณาเลือกไซซ์เสื้ออย่างน้อย 1 ตัว');
+  if(!t)return showErr('กรุณาเลือกขนาดเสื้ออย่างน้อย 1 ตัว');
   if(!o.method)return showErr('กรุณาเลือกวิธีรับเสื้อ');
   if(o.method==='จัดส่ง'&&!o.address.trim())return showErr('กรุณากรอกที่อยู่จัดส่ง');
   if(!slip)return showErr('กรุณาแนบสลิปการโอนเงิน');
   var b=this;b.disabled=true;b.textContent='กำลังส่ง...';
   fetch("https://script.google.com/macros/s/AKfycbyyY_NYhWaGZtQ7QgcH_8OJR0_elZKagUeinQA2dYLHnR1YBJyMu6RddxznY3LAxyJARA/exec",{method:"POST",body:JSON.stringify(o)}).then(function(res){return res.json();}).then(function(r){
     if(!r.ok)throw new Error(r.error||"ส่งไม่สำเร็จ");
-    document.getElementById('order').innerHTML='<div class="done"><h2>สั่งซื้อเรียบร้อย</h2><div>เลขที่คำสั่งซื้อ</div><div class="no">'+r.no+'</div><p>เสื้อ '+r.total+' ตัว ยอดรวม '+r.amount.toLocaleString()+' บาท</p><p>ขอบคุณที่สนับสนุนวงช่อพะยูงครับ</p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p><a class="btn ghost" href="./">สั่งเพิ่มอีกรายการ</a></div>';
+    document.getElementById('order').innerHTML='<div class="done"><h2>สั่งซื้อเรียบร้อย</h2><div>เลขที่คำสั่งซื้อ</div><div class="no">'+r.no+'</div><p>เสื้อ '+r.total+' ตัว ยอดรวม '+r.amount.toLocaleString()+' บาท</p><p>ขอบคุณที่สนับสนุนวงช่อพะยูง</p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p><a class="btn ghost" href="./">สั่งเพิ่มอีกรายการ</a></div>';
     document.getElementById('order').scrollIntoView();
   }).catch(function(e){b.disabled=false;b.textContent="ยืนยันการสั่งซื้อ";showErr((e&&e.message&&e.message!=="Failed to fetch")?e.message:"ส่งไม่สำเร็จ ลองใหม่อีกครั้ง");});
 };
