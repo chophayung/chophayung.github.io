@@ -136,6 +136,12 @@ h1,h2,.price{font-weight:700}
 .btn.ghost:hover{background:var(--color-gold);color:var(--color-ink)}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
+/* qa fixes */
+.layout{margin-top:var(--space-5)}
+.seg{overflow:hidden}
+.opt input{flex:none}
+.pay dd.acct,.contact,.nowrap{white-space:nowrap}
+@media (max-width:360px){.chips{grid-template-columns:repeat(3,minmax(0,1fr))}.chip b{font-size:var(--text-l)}}
 </style></head><body>
 <div class="wrap">
 <header class="top"><span class="mark">วงช่อพะยูง</span><a href="#order">สั่งซื้อ</a></header>
@@ -182,7 +188,7 @@ h1,h2,.price{font-weight:700}
 <div class="err" id="err" role="alert"></div>
 <button class="btn" id="go">ยืนยันการสั่งซื้อ</button>
 <p class="wait" id="wait" role="status">กำลังส่งคำสั่งซื้อและสลิป ใช้เวลาประมาณ 5 ถึง 15 วินาที กรุณาอย่าปิดหน้านี้</p>
-<p class="small contact">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p>
+<p class="small contact">สอบถาม ครูอรอุมา วิสัย<br>โทร 087-955-3025</p>
 </div>
 </main>
 </div>
@@ -227,18 +233,19 @@ document.getElementById('slip').onchange=function(e){
     slip={type:'image/jpeg',data:d.split(',')[1]};pv.src=d;pv.style.display='block';URL.revokeObjectURL(u);};
   img.onerror=function(){showErr('เปิดรูปนี้ไม่ได้ ลองถ่ายภาพหน้าจอสลิปแล้วแนบใหม่');};
   img.src=u;};
+function fail(t,id){showErr(t);var el=document.getElementById(id);if(el){el.scrollIntoView({block:'center'});if(el.focus)el.focus({preventScroll:true});}return false;}
 function showErr(t){var e=document.getElementById('err');e.textContent=t;e.style.display='block';}
 document.getElementById('go').onclick=function(){
   document.getElementById('err').style.display='none';
   var o={name:document.getElementById('name').value,phone:document.getElementById('phone').value,qty:qty(),method:method(),
     address:document.getElementById('addr').value,note:document.getElementById('note').value,slip:slip};
   var t=0;for(var k in o.qty)t+=o.qty[k];
-  if(!o.name.trim())return showErr('กรุณากรอกชื่อ-นามสกุล');
-  if(!/^0[0-9]{8,9}$/.test(o.phone.replace(/[^0-9]/g,'')))return showErr('กรุณากรอกเบอร์โทรให้ถูกต้อง');
-  if(!t)return showErr('กรุณาเลือกขนาดเสื้ออย่างน้อย 1 ตัว');
-  if(!o.method)return showErr('กรุณาเลือกวิธีรับเสื้อ');
-  if(o.method==='จัดส่ง'&&!o.address.trim())return showErr('กรุณากรอกที่อยู่จัดส่ง');
-  if(!slip)return showErr('กรุณาแนบสลิปการโอนเงิน');
+  if(!o.name.trim())return fail('กรุณากรอกชื่อ-นามสกุล','name');
+  if(!/^0[0-9]{8,9}$/.test(o.phone.replace(/[^0-9]/g,'')))return fail('กรุณากรอกเบอร์โทรให้ถูกต้อง','phone');
+  if(!t)return fail('กรุณาเลือกขนาดเสื้ออย่างน้อย 1 ตัว','chips');
+  if(!o.method)return fail('กรุณาเลือกวิธีรับเสื้อ','o1');
+  if(o.method==='จัดส่ง'&&!o.address.trim())return fail('กรุณากรอกที่อยู่จัดส่ง','addr');
+  if(!slip)return fail('กรุณาแนบสลิปการโอนเงิน','upl');
   var b=this;b.disabled=true;b.textContent='กำลังส่ง กรุณารอสักครู่';document.getElementById('wait').style.display='block';
   fetch("https://script.google.com/macros/s/AKfycbyyY_NYhWaGZtQ7QgcH_8OJR0_elZKagUeinQA2dYLHnR1YBJyMu6RddxznY3LAxyJARA/exec",{method:"POST",body:JSON.stringify(o)}).then(function(res){return res.json();}).then(function(r){
     if(!r.ok)throw new Error(r.error||"ส่งไม่สำเร็จ");
