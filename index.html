@@ -137,6 +137,13 @@ h1,h2,.price{font-weight:700}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
 /* qa fixes */
+.chips{grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.chip{padding:6px 2px;border-radius:8px}
+.chip b{font-size:18px;line-height:1.2}
+.chip span{font-size:12px}
+.chip i{top:-8px;right:-6px;min-width:20px;height:20px;line-height:20px;font-size:12px}
+details.chart summary{margin-top:2px}
+
 .sz{width:100%;border-collapse:collapse;font-size:var(--text-s);font-variant-numeric:tabular-nums;margin-top:var(--space-3)}
 .sz caption{text-align:left;font-weight:700;padding-bottom:var(--space-1)}
 .sz th,.sz td{border:1px solid var(--color-paper-3);padding:6px 2px;text-align:center}
@@ -183,7 +190,7 @@ h1,h2,.price{font-weight:700}
 <div class="seg"><button type="button" data-c="ชาย" class="on">ทรงชาย</button><button type="button" data-c="หญิง">ทรงหญิง</button></div>
 <div id="chips" class="chips"></div>
 <p class="hint" style="margin-top:12px">ตัวเลขใต้ขนาดคือรอบอก (นิ้ว) แตะซ้ำเพื่อเพิ่มจำนวน สั่งได้ทั้ง 2 ทรง</p>
-<div class="chart"><table class="sz"><caption>ทรงชาย (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">SS</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th><th scope="col">3XL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>36</td><td>38</td><td>40</td><td>42</td><td>44</td><td>46</td><td>48</td></tr><tr><th scope="row">ความยาว</th><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr></tbody></table><table class="sz"><caption>ทรงหญิง (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>34</td><td>36</td><td>38</td><td>40</td><td>42</td></tr><tr><th scope="row">ความยาว</th><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr></tbody></table></div>
+<details class="chart"><summary>ดูตารางขนาด (รอบอกและความยาว)</summary><table class="sz"><caption>ทรงชาย (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">SS</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th><th scope="col">3XL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>36</td><td>38</td><td>40</td><td>42</td><td>44</td><td>46</td><td>48</td></tr><tr><th scope="row">ความยาว</th><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr></tbody></table><table class="sz"><caption>ทรงหญิง (นิ้ว)</caption><thead><tr><th scope="col">ขนาด</th><th scope="col">S</th><th scope="col">M</th><th scope="col">L</th><th scope="col">XL</th><th scope="col">XXL</th></tr></thead><tbody><tr><th scope="row">รอบอก</th><td>34</td><td>36</td><td>38</td><td>40</td><td>42</td></tr><tr><th scope="row">ความยาว</th><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr></tbody></table></details>
 <div id="cart"></div></section>
 
 <section class="step"><h2>รับเสื้อ</h2>
