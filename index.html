@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>สั่งซื้อเสื้อวงช่อพะยูง</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--gold:#E0A82E;--bg:#f4f2ec;--line:#ddd6c6}
+*{box-sizing:border-box}
+body{margin:0;font-family:Sarabun,system-ui,sans-serif;background:var(--bg);color:#222;font-size:17px}
+.wrap{max-width:560px;margin:0 auto;padding:12px 12px 40px}
+.hero{background:var(--navy);color:#fff;border-radius:14px;padding:18px 16px;text-align:center}
+.hero h1{margin:0;font-size:24px;color:var(--gold);line-height:1.3}
+.hero p{margin:6px 0 0;font-size:16px}
+.card{background:#fff;border-radius:14px;padding:16px;margin-top:12px;border:1px solid var(--line)}
+.card h2{margin:0 0 10px;font-size:19px;color:var(--navy)}
+img.full{width:100%;border-radius:10px;display:block}
+label.f{display:block;font-weight:600;margin:10px 0 4px}
+input[type=text],input[type=tel],textarea,select{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy)}
+.seg{display:flex;background:#eee8d8;border-radius:12px;padding:4px;gap:4px}
+.seg button{flex:1;font:inherit;font-weight:700;font-size:18px;padding:10px;border:0;border-radius:9px;background:transparent;color:#555;cursor:pointer}
+.seg button.on{background:var(--navy);color:var(--gold)}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.chip{position:relative;font:inherit;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 4px;text-align:center;cursor:pointer}
+.chip b{display:block;font-size:20px;color:var(--navy)}
+.chip span{font-size:13px;color:#777}
+.chip.on{border-color:var(--gold);background:#fff8e6}
+.chip i{position:absolute;top:-8px;right:-6px;background:var(--gold);color:var(--navy);font-style:normal;font-weight:700;font-size:13px;min-width:22px;height:22px;line-height:22px;border-radius:11px;display:none}
+.chip.on i{display:block}
+details.chart{margin-top:10px}
+details.chart summary{cursor:pointer;color:var(--navy);font-weight:600;font-size:15px}
+details.chart img{margin-top:8px}
+.line{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1.5px solid var(--gold);background:#fff8e6;border-radius:10px;margin-top:8px}
+.line .nm{flex:1;font-weight:600}
+.line .nm small{font-weight:400;color:#777}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-size:20px;font-weight:700;cursor:pointer;line-height:1}
+.step b{min-width:22px;text-align:center;font-size:18px}
+.del{border:0;background:none;color:#b3261e;font-size:20px;cursor:pointer;padding:0 2px}
+.opt{display:flex;align-items:center;gap:10px;padding:12px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px;font-weight:600}
+.opt input{width:22px;height:22px;accent-color:var(--navy)}
+.opt.on{border-color:var(--gold);background:#fff8e6}
+#addrBox{display:none;margin:-2px 0 8px}
+.sum{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;border-radius:10px;padding:12px 14px;margin-top:6px}
+.sum b{color:var(--gold);font-size:22px}
+.bank{line-height:1.6;font-size:16px}
+.bank b{color:var(--navy)}
+.qr{width:70%;max-width:260px;margin:10px auto;display:block}
+.up{display:block;border:2px dashed var(--gold);border-radius:12px;padding:16px;text-align:center;cursor:pointer;background:#fffaf0;font-weight:600}
+.up input{display:none}
+#prev{max-width:100%;max-height:260px;margin:10px auto 0;display:none;border-radius:8px}
+.btn{width:100%;font:inherit;font-size:20px;font-weight:700;padding:14px;border:0;border-radius:12px;background:var(--gold);color:var(--navy);margin-top:14px;cursor:pointer}
+.btn:disabled{opacity:.6}
+.err{color:#b3261e;font-weight:600;margin-top:10px;display:none}
+.small{font-size:14px;color:#666}
+.done{text-align:center;padding:30px 16px}
+.done h2{color:var(--navy);font-size:24px}
+.done .no{font-size:30px;color:var(--gold);font-weight:700}
+</style></head><body><div class="wrap" id="app">
+<div class="hero"><h1>สั่งซื้อเสื้อวงดนตรีลูกทุ่ง<br>ช่อพะยูง โรงเรียนขุขันธ์</h1><p>ราคาตัวละ 350 บาท · รายได้สนับสนุนวงช่อพะยูง</p></div>
+
+<div class="card"><h2>ตัวอย่างเสื้อ</h2><img class="full" src="shirt.jpg" alt="ตัวอย่างเสื้อ"></div>
+
+<div class="card"><h2>ข้อมูลผู้สั่ง</h2>
+<label class="f" for="name">ชื่อ-นามสกุล</label><input type="text" id="name" autocomplete="name">
+<label class="f" for="phone">เบอร์โทรศัพท์</label><input type="tel" id="phone" inputmode="numeric" placeholder="เช่น 0812345678"></div>
+
+<div class="card"><h2>เลือกทรง ไซซ์ และจำนวน</h2>
+<div class="seg"><button type="button" data-c="ชาย" class="on">ทรงชาย</button><button type="button" data-c="หญิง">ทรงหญิง</button></div>
+<div class="small" style="margin:10px 0 6px">แตะไซซ์ที่ต้องการ (ตัวเลข = รอบอก นิ้ว) · สั่งได้หลายไซซ์ทั้ง 2 ทรง</div>
+<div id="chips" class="chips"></div>
+<details class="chart"><summary>📏 ดูตารางไซซ์ (รอบอก / ความยาว)</summary><img class="full" src="sizechart.jpg" alt="ตารางไซซ์"></details>
+<div id="cart"></div></div>
+
+<div class="card"><h2>วิธีรับเสื้อ</h2>
+<label class="opt" id="o1"><input type="radio" name="m" value="รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์">รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์</label>
+<label class="opt" id="o2"><input type="radio" name="m" value="จัดส่ง">จัดส่ง (+50 บาท)</label>
+<div id="addrBox"><textarea id="addr" rows="3" placeholder="ชื่อผู้รับ ที่อยู่ และรหัสไปรษณีย์"></textarea></div>
+<div class="sum"><span>ยอดที่ต้องโอน<br><span class="small" style="color:#cfd2ea" id="cnt">0 ตัว</span></span><b id="amt">0 บาท</b></div></div>
+
+<div class="card"><h2>ชำระเงิน</h2>
+<div class="bank">สแกน QR Code หรือโอนเข้าบัญชี<br><b>ธนาคารกรุงไทย</b><br>เลขที่บัญชี <b>861-0-81701-6</b><br>ชื่อบัญชี กองทุนส่งเสริมความเป็นเลิศทางด้านวงดนตรีลูกทุ่ง โรงเรียนขุขันธ์</div>
+<img class="qr" src="qr.jpg" alt="QR พร้อมเพย์">
+<label class="up" id="upl"><input type="file" id="slip" accept="image/*,application/pdf">📎 แตะเพื่อแนบสลิปการโอนเงิน<div class="small" id="fname">รูปภาพ หรือ PDF</div><img id="prev" alt=""></label>
+<label class="f" for="note">หมายเหตุ (ถ้ามี)</label><textarea id="note" rows="2"></textarea>
+<div class="err" id="err"></div>
+<button class="btn" id="go">ยืนยันการสั่งซื้อ</button>
+<div class="small" style="text-align:center;margin-top:10px">สอบถาม: ครูอรอุมา วิสัย โทร 087-955-3025</div></div>
+</div>
+<script>
+var PRICE=350,SHIP=50,SIZES=["ชาย SS","ชาย S","ชาย M","ชาย L","ชาย XL","ชาย XXL","ชาย 3XL","หญิง S","หญิง M","หญิง L","หญิง XL","หญิง XXL"],slip=null;
+var CUTS={"ชาย":[["SS",36,25],["S",38,26],["M",40,27],["L",42,28],["XL",44,29],["XXL",46,30],["3XL",48,31]],"หญิง":[["S",34,24],["M",36,25],["L",38,26],["XL",40,27],["XXL",42,28]]},cut='ชาย',cart={};
+function chest(c,z){var r=CUTS[c].filter(function(x){return x[0]===z;})[0];return r?r[1]:'';}
+function renderChips(){var h='';CUTS[cut].forEach(function(r){var k=cut+' '+r[0],n=cart[k]||0;
+  h+='<button type="button" class="chip'+(n?' on':'')+'" data-k="'+k+'"><i>'+n+'</i><b>'+r[0]+'</b><span>อก '+r[1]+'</span></button>';});
+  var el=document.getElementById('chips');el.innerHTML=h;
+  el.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-k');cart[k]=(cart[k]||0)+1;render();};});}
+function renderCart(){var h='';SIZES.forEach(function(k){if(!cart[k])return;var p=k.split(' ');
+  h+='<div class="line"><div class="nm">ทรง'+p[0]+' '+p[1]+' <small>(อก '+chest(p[0],p[1])+')</small></div><div class="step"><button type="button" data-m="'+k+'">−</button><b>'+cart[k]+'</b><button type="button" data-p="'+k+'">+</button></div><button type="button" class="del" data-d="'+k+'">✕</button></div>';});
+  var el=document.getElementById('cart');el.innerHTML=h;
+  el.querySelectorAll('[data-p]').forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-p');cart[k]=Math.min(50,cart[k]+1);render();};});
+  el.querySelectorAll('[data-m]').forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-m');cart[k]=cart[k]-1;if(cart[k]<1)delete cart[k];render();};});
+  el.querySelectorAll('[data-d]').forEach(function(b){b.onclick=function(){delete cart[b.getAttribute('data-d')];render();};});}
+function render(){renderChips();renderCart();calc();}
+document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){cut=b.getAttribute('data-c');
+  document.querySelectorAll('.seg button').forEach(function(x){x.className=x===b?'on':'';});renderChips();};});
+function qty(){var q={};SIZES.forEach(function(k){q[k]=cart[k]||0;});return q;}
+function method(){var r=document.querySelector('input[name=m]:checked');return r?r.value:'';}
+function calc(){var q=qty(),t=0;for(var k in q)t+=q[k];var ship=method()==='จัดส่ง';
+  document.getElementById('cnt').textContent=t+' ตัว'+(ship&&t?' + ค่าส่ง':'');
+  document.getElementById('amt').textContent=(t?t*PRICE+(ship?SHIP:0):0).toLocaleString()+' บาท';
+  document.getElementById('o1').className='opt'+(method()==='รับที่กลุ่มสาระศิลปะ โรงเรียนขุขันธ์'?' on':'');
+  document.getElementById('o2').className='opt'+(ship?' on':'');
+  document.getElementById('addrBox').style.display=ship?'block':'none';}
+document.querySelectorAll('input[name=m]').forEach(function(r){r.onchange=calc;});
+render();
+document.getElementById('slip').onchange=function(e){
+  var f=e.target.files[0];if(!f)return;document.getElementById('fname').textContent=f.name;
+  var pv=document.getElementById('prev');
+  if(f.type==='application/pdf'){
+    if(f.size>8e6){showErr('ไฟล์ PDF ใหญ่เกินไป');return;}
+    var fr=new FileReader();fr.onload=function(){slip={type:'application/pdf',data:fr.result.split(',')[1]};pv.style.display='none';};fr.readAsDataURL(f);return;}
+  var img=new Image(),u=URL.createObjectURL(f);
+  img.onload=function(){var m=1600,w=img.width,h=img.height,r=Math.min(1,m/Math.max(w,h));
+    var c=document.createElement('canvas');c.width=Math.round(w*r);c.height=Math.round(h*r);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);var d=c.toDataURL('image/jpeg',0.85);
+    slip={type:'image/jpeg',data:d.split(',')[1]};pv.src=d;pv.style.display='block';URL.revokeObjectURL(u);};
+  img.onerror=function(){showErr('เปิดรูปนี้ไม่ได้ ลองถ่ายภาพหน้าจอสลิปแล้วแนบใหม่');};
+  img.src=u;};
+function showErr(t){var e=document.getElementById('err');e.textContent=t;e.style.display='block';}
+document.getElementById('go').onclick=function(){
+  document.getElementById('err').style.display='none';
+  var o={name:document.getElementById('name').value,phone:document.getElementById('phone').value,qty:qty(),method:method(),
+    address:document.getElementById('addr').value,note:document.getElementById('note').value,slip:slip};
+  var t=0;for(var k in o.qty)t+=o.qty[k];
+  if(!o.name.trim())return showErr('กรุณากรอกชื่อ-นามสกุล');
+  if(!/^0[0-9]{8,9}$/.test(o.phone.replace(/[^0-9]/g,'')))return showErr('กรุณากรอกเบอร์โทรให้ถูกต้อง');
+  if(!t)return showErr('กรุณาเลือกไซซ์เสื้ออย่างน้อย 1 ตัว');
+  if(!o.method)return showErr('กรุณาเลือกวิธีรับเสื้อ');
+  if(o.method==='จัดส่ง'&&!o.address.trim())return showErr('กรุณากรอกที่อยู่จัดส่ง');
+  if(!slip)return showErr('กรุณาแนบสลิปการโอนเงิน');
+  var b=this;b.disabled=true;b.textContent='กำลังส่ง...';
+  fetch("https://script.google.com/macros/s/AKfycbyyY_NYhWaGZtQ7QgcH_8OJR0_elZKagUeinQA2dYLHnR1YBJyMu6RddxznY3LAxyJARA/exec",{method:"POST",body:JSON.stringify(o)}).then(function(res){return res.json();}).then(function(r){
+    if(!r.ok)throw new Error(r.error||"ส่งไม่สำเร็จ");
+    document.getElementById('app').innerHTML='<div class="hero"><h1>ช่อพะยูง โรงเรียนขุขันธ์</h1></div><div class="card done"><h2>✅ สั่งซื้อเรียบร้อยแล้ว</h2><div>เลขที่คำสั่งซื้อ</div><div class="no">'+r.no+'</div><p>เสื้อ '+r.total+' ตัว · ยอด '+r.amount.toLocaleString()+' บาท</p><p>ขอบคุณที่สนับสนุนวงช่อพะยูงครับ 🙏</p><p class="small">สอบถาม: ครูอรอุมา วิสัย โทร 087-955-3025</p></div>';
+    window.scrollTo(0,0);
+  }).catch(function(e){b.disabled=false;b.textContent="ยืนยันการสั่งซื้อ";showErr((e&&e.message&&e.message!=="Failed to fetch")?e.message:"ส่งไม่สำเร็จ ลองใหม่อีกครั้ง");});
+};
+</script></body></html>
