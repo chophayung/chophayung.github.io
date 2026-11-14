@@ -155,6 +155,11 @@ details.chart summary{margin-top:2px}
 .sz tbody th{font-weight:600;color:var(--color-muted);white-space:nowrap;padding:6px}
 .pay .qrcard{justify-self:center}
 .pay .qrcard{order:-1}
+.done p{font-size:var(--text-l);margin:var(--space-2) 0}
+.done p.small{font-size:var(--text-m,16px);color:var(--color-muted)}
+.done>div:nth-child(2){color:var(--color-muted)}
+.done::before{content:"✓";display:grid;place-items:center;width:64px;height:64px;margin:0 auto var(--space-4);border-radius:50%;background:var(--color-ink);color:var(--color-gold);font-size:34px;font-weight:600}
+@media (min-width:900px){.layout:has(.done){align-items:stretch}#order:has(.done){display:flex;align-items:center;justify-content:center}.done{padding:var(--space-6) var(--space-5)}}
 @media (min-width:900px){.pay{grid-template-columns:auto minmax(0,1fr)!important;column-gap:var(--space-5)}.pay .qrcard{justify-self:start}}
 
 .chart{margin-top:var(--space-4)}
