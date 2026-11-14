@@ -2,9 +2,9 @@
 <html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>สั่งซื้อเสื้อวงช่อพะยูง โรงเรียนขุขันธ์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@600;700&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* Hallmark · v2.0.0 · redesign: full · scope: app · theme: carnival (brand drop: the shirt's navy and gold) · deal: manual · genre: editorial · signature: the shirt and its price, set poster-large · built by hand, scripts not run */
+/* Hallmark · v2.0.0 · variant C atelier · redesign: full · scope: app · theme: carnival (brand drop: the shirt's navy and gold) · deal: manual · genre: editorial · signature: the shirt and its price, set poster-large · built by hand, scripts not run */
 /* critique: one form well on a hard ink shadow; options are ruled rows that invert when chosen; the live total sits in the display face */
 /* waive 7: the order form needs scripting to submit, a noscript line says so */
 :root{
@@ -109,6 +109,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .pay{grid-template-columns:minmax(0,1fr) auto;align-items:start}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* variant: atelier, ivory paper, serif heads, gold hairlines */
+:root{--color-paper:oklch(97.5% 0.012 85);--color-paper-2:oklch(94% 0.02 85);--color-paper-3:oklch(90% 0.03 85);
+--color-ink:oklch(26% 0.07 268);--color-muted:oklch(48% 0.03 268);
+--color-accent:oklch(26% 0.07 268);--color-accent-ink:oklch(97.5% 0.012 85);--color-rule:oklch(72% 0.12 80);
+--color-gold:oklch(72% 0.12 80);--color-focus:oklch(60% 0.15 70);
+--font-display:"Noto Serif Thai",Georgia,serif;--radius-card:10px;--rule-bar:1px;--shadow-card:0 1px 0 var(--color-rule);--shadow-press:none}
+h1,h2,.price{font-weight:700}
+.hero h1{letter-spacing:-0.01em}
+.well{border-color:var(--color-rule);background:oklch(100% 0 0)}
+.shot{border-color:var(--color-rule)}
+.seg{border-color:var(--color-ink)}
+.chip{border-color:var(--color-paper-3)}.chip.on{background:var(--color-ink);color:var(--color-paper);border-color:var(--color-ink)}.chip.on span{color:var(--color-paper-3)}
+.chip i{background:var(--color-gold);color:var(--color-ink)}
+.line,.line:last-child{border-color:var(--color-paper-3)}
+.opt,.opt:last-of-type{border-color:var(--color-paper-3)}.opt.on{background:var(--color-paper-2);color:var(--color-ink);box-shadow:inset 3px 0 0 var(--color-gold)}
+.total{background:var(--color-paper-2);border-color:var(--color-rule)}.total b{color:var(--color-ink)}
+.up{border-color:var(--color-rule);background:var(--color-paper)}
+.btn{border-color:var(--color-ink)}.btn:hover{background:var(--color-gold);color:var(--color-ink)}
+.btn:active{transform:translate(0,1px)}
+.top a,details.chart summary{text-decoration-color:var(--color-gold)}
+.price b{font-weight:700}
+
 </style></head><body>
 <div class="wrap">
 <header class="top"><span class="mark">วงช่อพะยูง</span><a href="#order">สั่งซื้อ</a></header>
