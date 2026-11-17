@@ -137,6 +137,8 @@ h1,h2,.price{font-weight:700}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
 /* qa fixes */
+.deadline{display:block;margin:0 0 14px;font-weight:500;font-size:16px;color:#b3261e}
+
 .done.closed::before{content:"";display:none}
 .done.closed h2{margin-bottom:var(--space-3)}
 
@@ -191,7 +193,7 @@ details.chart summary{margin-top:2px}
 <section class="side">
 <div class="hero">
 <div>
-<span class="preorder">พรีออเดอร์</span><h1>เสื้อวงช่อพะยูง</h1>
+<span class="preorder">พรีออเดอร์</span><span class="deadline">ปิดรับออร์เดอร์ 16.00 น. วันที่ 17/11/2569</span><h1>เสื้อวงช่อพะยูง</h1>
 <p>รายได้ทุกตัวสนับสนุนวงดนตรีลูกทุ่ง <span class="nowrap">โรงเรียนขุขันธ์</span></p>
 <div class="price"><b>350</b><span>บาท</span></div>
 </div>
@@ -317,6 +319,6 @@ if(typeof calc==='function')calc();})();
 function shut(){var o=document.getElementById('order');if(!o||o.dataset.closed||o.querySelector('.done'))return;
   var g=document.getElementById('go');if(g&&g.disabled)return;
   o.dataset.closed='1';o.innerHTML='<div class="done closed"><h2>ปิดรับ<span class="nowrap">พรีออเดอร์แล้ว</span></h2><p>ขอบคุณทุกคนที่ร่วมสนับสนุน<span class="nowrap">วงช่อพะยูง</span></p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p></div>';
-  var b=document.querySelector('.preorder');if(b)b.textContent='ปิดรับแล้ว';}
+  var b=document.querySelector('.preorder');if(b)b.textContent='ปิดรับแล้ว';var d=document.querySelector('.deadline');if(d)d.style.display='none';}
 function chk(){if(Date.now()>=END)shut();}chk();setInterval(chk,20000);})();
 </script></body></html>
