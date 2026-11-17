@@ -193,7 +193,7 @@ details.chart summary{margin-top:2px}
 <section class="side">
 <div class="hero">
 <div>
-<span class="preorder">พรีออเดอร์</span><span class="deadline">ปิดรับออร์เดอร์ 16.00 น. วันที่ 17/11/2569</span><h1>เสื้อวงช่อพะยูง</h1>
+<span class="preorder">พรีออเดอร์ รอบ 2</span><h1>เสื้อวงช่อพะยูง</h1>
 <p>รายได้ทุกตัวสนับสนุนวงดนตรีลูกทุ่ง <span class="nowrap">โรงเรียนขุขันธ์</span></p>
 <div class="price"><b>350</b><span>บาท</span></div>
 </div>
@@ -315,7 +315,7 @@ window.qrUpdate=function(amt){try{
 if(typeof calc==='function')calc();})();
 </script>
 <script>
-(function(){var END=new Date('2026-11-17T16:00:00+07:00').getTime();
+(function(){var END=Infinity; // ตั้งเวลาปิด: new Date('2026-11-30T16:00:00+07:00').getTime()
 function shut(){var o=document.getElementById('order');if(!o||o.dataset.closed||o.querySelector('.done'))return;
   var g=document.getElementById('go');if(g&&g.disabled)return;
   o.dataset.closed='1';o.innerHTML='<div class="done closed"><h2>ปิดรับ<span class="nowrap">พรีออเดอร์แล้ว</span></h2><p>ขอบคุณทุกคนที่ร่วมสนับสนุน<span class="nowrap">วงช่อพะยูง</span></p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p></div>';
