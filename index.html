@@ -137,6 +137,9 @@ h1,h2,.price{font-weight:700}
 .wait{display:none;margin-top:var(--space-3);text-align:center;color:var(--color-muted)}
 
 /* qa fixes */
+.done.closed::before{content:"";display:none}
+.done.closed h2{margin-bottom:var(--space-3)}
+
 .preorder{display:inline-block;background:var(--color-gold);color:var(--color-ink);font-weight:600;font-size:16px;letter-spacing:.02em;padding:2px 14px;border-radius:999px;margin-bottom:var(--space-2)}
 
 .qramt{background:#fff;padding:0 var(--space-3) var(--space-3);text-align:center;font-size:14px;color:var(--color-muted);line-height:1.5}
@@ -308,4 +311,12 @@ window.qrUpdate=function(amt){try{
   document.getElementById('qramt').innerHTML=amt>0?'ยอด <b>'+amt.toLocaleString()+' บาท</b><br>สแกนแล้วยอดขึ้นในแอปให้เลย':'เลือกขนาดก่อน ยอดเงินจะขึ้นใน QR ให้อัตโนมัติ';
 }catch(e){}};
 if(typeof calc==='function')calc();})();
+</script>
+<script>
+(function(){var END=new Date('2026-11-17T12:00:00+07:00').getTime();
+function shut(){var o=document.getElementById('order');if(!o||o.dataset.closed||o.querySelector('.done'))return;
+  var g=document.getElementById('go');if(g&&g.disabled)return;
+  o.dataset.closed='1';o.innerHTML='<div class="done closed"><h2>ปิดรับ<span class="nowrap">พรีออเดอร์แล้ว</span></h2><p>ขอบคุณทุกคนที่ร่วมสนับสนุน<span class="nowrap">วงช่อพะยูง</span></p><p class="small">สอบถาม ครูอรอุมา วิสัย โทร 087-955-3025</p></div>';
+  var b=document.querySelector('.preorder');if(b)b.textContent='ปิดรับแล้ว';}
+function chk(){if(Date.now()>=END)shut();}chk();setInterval(chk,20000);})();
 </script></body></html>
